@@ -6,6 +6,11 @@ class Duck {
     constructor() {
         this.duckObjet = this.initializeDuck();
         this.startMoving();
+        this.duckObjet.onclick = () => this.destroy();
+    }
+
+    destroy() {
+        this.duckObjet.remove();
     }
 
     initializeDuck() {
@@ -33,8 +38,8 @@ class Duck {
         let left = this.duckObjet.getBoundingClientRect().left;
 
         let id = setInterval(() => {
-            left -= 0;
-            top -= 0;
+            left -= 20;
+            top -= 20;
 
             if (top > 0 && left > 0) {
                 this.duckObjet.style.top = top + 'px';
@@ -50,8 +55,8 @@ class Duck {
         let top = this.duckObjet.getBoundingClientRect().top;
         let left = this.duckObjet.getBoundingClientRect().left;
         let id = setInterval(() => {
-            top -= 0;
-            left += 0;
+            top -= 20;
+            left += 20;
             if (top > 0 && left < window.innerWidth - this.duckObjet.width) {
                 this.duckObjet.style.top = top + 'px';
                 this.duckObjet.style.left = left + 'px';
@@ -66,8 +71,8 @@ class Duck {
         let top = this.duckObjet.getBoundingClientRect().top;
         let left = this.duckObjet.getBoundingClientRect().left;
         let id = setInterval(() => {
-            top += 0;
-            left += 0;
+            top += 20;
+            left += 20;
             if (top < (window.innerHeight - 160) - this.duckObjet.height && left < window.innerWidth - 30 - this.duckObjet.width) {
                 this.duckObjet.style.top = top + 'px';
                 this.duckObjet.style.left = left + 'px';
@@ -82,8 +87,8 @@ class Duck {
         let top = this.duckObjet.getBoundingClientRect().top;
         let left = this.duckObjet.getBoundingClientRect().left;
         let id = setInterval(() => {
-            top += 0;
-            left -= 0;
+            top += 20;
+            left -= 20;
             if (top < (window.innerHeight - 160) - this.duckObjet.height && left > 0) {
                 this.duckObjet.style.top = top + 'px';
                 this.duckObjet.style.left = left + 'px';
