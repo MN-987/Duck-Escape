@@ -25,6 +25,12 @@ class Duck {
         this.#bodyObj.appendChild(duckObjetToAdd);
     }
 
+    addEventListeners() {
+        this.duckObject.addEventListener('click', () => {
+            console.log('bird hit');
+        });
+    }
+    
     // Function to generate a random integer between 1 and 8
     getRandomMove = () => Math.floor(Math.random() * 1) + 1;
 
@@ -33,8 +39,8 @@ class Duck {
         let left = this.duckObjet.getBoundingClientRect().left;
 
         let id = setInterval(() => {
-            left -= 15;
-            top -= 15;
+            left -= 0;
+            top -= 0;
 
             if (top > 0 && left > 0) {
                 this.duckObjet.style.top = top + 'px';
@@ -50,30 +56,23 @@ class Duck {
         let top = this.duckObjet.getBoundingClientRect().top;
         let left = this.duckObjet.getBoundingClientRect().left;
         let id = setInterval(() => {
-            top -= 15;
-            left += 15;
-            console.log(`Top: ${top}, Left: ${left}`);
+            top -= 0;
+            left += 0;
             if (top > 0 && left < window.innerWidth - this.duckObjet.width) {
-                console.log("In if of moveTopRight");
                 this.duckObjet.style.top = top + 'px';
                 this.duckObjet.style.left = left + 'px';
             } else {
                 clearInterval(id);
-                console.log("Moving to bottom left");
                 this.moveBottomLeft();
             }
         }, 100); // Increase the interval to slow down the animation
     }
-
-
-
     moveBottomRight() {
         let top = this.duckObjet.getBoundingClientRect().top;
         let left = this.duckObjet.getBoundingClientRect().left;
-        console.log(`Initial Top: ${top} Initial Left: ${left}`);
         let id = setInterval(() => {
-            top += 15;
-            left += 15;
+            top += 0;
+            left += 0;
             if (top < (window.innerHeight - 160) - this.duckObjet.height && left < window.innerWidth - 30 - this.duckObjet.width) {
                 this.duckObjet.style.top = top + 'px';
                 this.duckObjet.style.left = left + 'px';
@@ -91,10 +90,9 @@ class Duck {
     moveBottomLeft() {
         let top = this.duckObjet.getBoundingClientRect().top;
         let left = this.duckObjet.getBoundingClientRect().left;
-        console.log(`Inside move bottom left and the top value is ${top} and`);
         let id = setInterval(() => {
-            top += 15;
-            left -= 15;
+            top += 0;
+            left -= 0;
             if (top < (window.innerHeight - 160) - this.duckObjet.height && left > 0) {
                 this.duckObjet.style.top = top + 'px';
                 this.duckObjet.style.left = left + 'px';

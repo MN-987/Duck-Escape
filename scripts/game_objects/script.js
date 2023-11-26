@@ -2,8 +2,8 @@ let body = document.body;
 
 window.addEventListener("click", function () {
   playAnimation();
-  removeBullet();
-  createRedDuckImg();
+  // removeBullet();
+  // createRedDuckImg();
 });
 
 function playAnimation() {
