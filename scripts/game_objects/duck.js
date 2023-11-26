@@ -1,11 +1,11 @@
 class Duck {
 
-    
     #bodyObj = document.querySelector('body');
     duckObjet;
 
     constructor() {
         this.duckObjet = this.initializeDuck();
+        this.startMoving();
     }
 
     initializeDuck() {
@@ -25,14 +25,8 @@ class Duck {
         this.#bodyObj.appendChild(duckObjetToAdd);
     }
 
-    addEventListeners() {
-        this.duckObject.addEventListener('click', () => {
-            console.log('bird hit');
-        });
-    }
-    
     // Function to generate a random integer between 1 and 8
-    getRandomMove = () => Math.floor(Math.random() * 1) + 1;
+    getRandomMove = () => Math.floor(Math.random() * 4) + 1;
 
     moveTopLeft() {
         let top = this.duckObjet.getBoundingClientRect().top;
@@ -67,6 +61,7 @@ class Duck {
             }
         }, 100); // Increase the interval to slow down the animation
     }
+
     moveBottomRight() {
         let top = this.duckObjet.getBoundingClientRect().top;
         let left = this.duckObjet.getBoundingClientRect().left;
@@ -82,10 +77,6 @@ class Duck {
             }
         }, 50);
     }
-
-
-
-
 
     moveBottomLeft() {
         let top = this.duckObjet.getBoundingClientRect().top;
@@ -103,63 +94,24 @@ class Duck {
         }, 50);
     }
 
-};
+    startMoving() {
+        // You can choose a random starting direction
+        const randomDirection = this.getRandomMove();
 
-//  moveInRandomPosition = function (duckObjet) {
-//         const randomPositionNumber = getRandomMove();
-
-//         switch (randomPositionNumber) {
-//             case 1:
-//                 moveTopLeft(duckObjet);
-//                 break;
-//             case 2:
-//                 moveTopRight(duckObjet);
-//                 break;
-//         case 3:
-//             moveBottomLeft(duckObjet);
-//             break;
-//         case 4:
-//             moveBottomRight(duckObjet);
-//             break;
-//         case 5:
-//             moveBottom(duckObjet);
-//             break;
-//         case 6:
-//             moveTop(duckObjet);
-//             break;
-//         case 7:
-//             moveRight(duckObjet);
-//             break;
-//         case 8:
-//             moveLeft(duckObjet);
-//             break;
-//         default:
-//             break;
-//     }
-//  };
-//         }
-
-// }
-
-// Create an instance of the Duck class
-let duckInstance = new Duck();
-let duckInstance2 = new Duck();
-let duckInstance3 = new Duck();
-
-let duckInstance4 = new Duck();
-
-let duckInstance5 = new Duck();
-let duckInstance6 = new Duck();
-// Call the moveTopLeft method to animate the duck
-duckInstance.moveTopLeft();
-
-
-duckInstance2.moveTopRight();
-
-duckInstance3.moveBottomLeft();
-
-duckInstance4.moveBottomRight();
-
-duckInstance5.moveTopRight();
-
-duckInstance6.moveBottomRight();
+        // Call the appropriate move function based on the randomDirection
+        switch (randomDirection) {
+            case 1:
+                this.moveTopLeft();
+                break;
+            case 2:
+                this.moveTopRight();
+                break;
+            case 3:
+                this.moveBottomRight();
+                break;
+            case 4:
+                this.moveBottomLeft();
+                break;
+        }
+    }
+}
